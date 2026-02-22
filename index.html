@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeeyo - Live Free, Live Long | Senior Care Assistance Services in Kolkata</title>
+    <meta name="description" content="Jeeyo provides comprehensive assistance services for senior citizens in Kolkata. Medicine booking, doctor visits, grocery assistance, and more. Live Free, Live Long.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Warm, trustworthy color palette for elderly care */
+            --primary: #2C5F2D;
+            --primary-light: #97BC62;
+            --accent: #D4A574;
+            --text-dark: #2B2B2B;
+            --text-light: #666;
+            --bg-cream: #FAF8F3;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background: var(--bg-cream);
+            font-size: 18px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 0.75rem 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            font-style: italic;
+            font-size: 0.9rem;
+            display: block;
+            color: var(--accent);
+            font-weight: 400;
+            margin-top: -5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('couple.jpg') center/cover no-repeat;
+            opacity: 0.08;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(44, 95, 45, 0.2);
+            font-weight: 600;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(44, 95, 45, 0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+        
+        /* About Section */
+        .about-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px var(--shadow);
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-light);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+        
+        /* Pricing Section */
+        #pricing {
+            background: linear-gradient(135deg, var(--primary) 0%, #1f4520 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+        }
+        
+        #pricing .section-title {
+            color: var(--white);
+        }
+        
+        #pricing .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px var(--shadow);
+        }
+        
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .info-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .info-item .icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+        
+        .info-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .info-item a:hover {
+            color: var(--primary-light);
+        }
+        
+        /* Form Styles */
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px var(--shadow);
+        }
+        
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-cream);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--white);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+        }
+        
+        .submit-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(44, 95, 45, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .footer-tagline {
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+        
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="jeeyo-logo.png" alt="Jeeyo Logo" style="height: 60px;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Live Free, Live Long</h1>
+            <p class="tagline">Making Life Easier for Those Who Matter Most</p>
+            <p>Comprehensive assistance services for senior citizens in Kolkata. We bridge the gap between you and quality service providers, handling everything from medicine booking to doctor visits.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Jeeyo</h2>
+        <p class="section-subtitle">Your Trusted Partner in Senior Care</p>
+        
+        <div class="about-content">
+            <p>At <strong>Jeeyo</strong>, we believe that our elders deserve to live with dignity, independence, and joy. Our mission is to provide comprehensive assistance services that enable senior citizens to <em>Live Free, Live Long</em> in the comfort of their own homes.</p>
+            
+            <p>We understand the challenges that come with aging, and our dedicated team is committed to making everyday tasks easier, ensuring peace of mind for both seniors and their families.</p>
+            
+            <p><strong>What We Do:</strong> Jeeyo acts as your trusted bridge to connect you with quality service providers. We help you avail various services by coordinating with verified third-party providers, handling all the logistics, bookings, and coordination on your behalf.</p>
+            
+            <p>From grocery shopping to doctor appointments, from appliance repairs to legal assistance, we're here to help with every aspect of daily life that might become challenging with age.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive support for every aspect of daily life</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🏥 Medical & Health</h3>
+                <ul>
+                    <li>Medicine Booking & Delivery</li>
+                    <li>Doctor Visit Booking</li>
+                    <li>Nurse & Home Visits</li>
+                    <li>Ambulance Booking</li>
+                    <li>Physiotherapist Services</li>
+                    <li>Yearly Vaccination Service</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>🛒 Daily Errands</h3>
+                <ul>
+                    <li>Grocery Assistance</li>
+                    <li>Bank Visit Assistance</li>
+                    <li>Gift Purchase Support</li>
+                    <li>Home Food Delivery</li>
+                    <li>Laundry Services</li>
+                    <li>Gas & Utility Booking</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>🏠 Home & Travel</h3>
+                <ul>
+                    <li>Electric Appliance Repair</li>
+                    <li>Appliance Purchase</li>
+                    <li>Househelp & Cleaning</li>
+                    <li>Cab & Travel Booking</li>
+                    <li>Professional Drivers</li>
+                    <li>Camera Installation</li>
+                    <li>Elderly Friendly Equipment Installation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>📱 Digital & Documentation</h3>
+                <ul>
+                    <li>Mobile & TV Recharging</li>
+                    <li>Call Assistance</li>
+                    <li>Subscriptions Renewal</li>
+                    <li>Mobile Support</li>
+                    <li>KYC & Pensioner Support</li>
+                    <li>Legal Assistance</li>
+                    <li>Documentation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>🎫 Travel & Entertainment</h3>
+                <ul>
+                    <li>Passport Renewal</li>
+                    <li>Visa Assistance</li>
+                    <li>Entertainment Booking</li>
+                    <li>Government Office Help</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title">Pricing Plans</h2>
+        <p class="section-subtitle">Choose the plan that works best for you</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic Plan</h3>
+                <div class="price">₹2,000<span>/month</span></div>
+                <ul>
+                    <li>✓ Up to 10 service requests</li>
+                    <li>✓ All coordination services</li>
+                    <li>✗ No home visits included</li>
+                    <li>✓ Phone & email support</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Silver Plan</h3>
+                <div class="price">₹4,000<span>/month</span></div>
+                <ul>
+                    <li>✓ Up to 10 service requests</li>
+                    <li>✓ All coordination services</li>
+                    <li>✓ 1 Home Visit (1 hour)</li>
+                    <li>✓ 1 Doctor Visit (2 hours)</li>
+                    <li>✓ Priority support</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Gold Plan</h3>
+                <div class="price">₹6,000<span>/month</span></div>
+                <ul>
+                    <li>✓ Up to 10 service requests</li>
+                    <li>✓ All coordination services</li>
+                    <li>✓ 2 Home Visits (1 hour each)</li>
+                    <li>✓ 2 Doctor Visits (2 hours each)</li>
+                    <li>✓ Priority support</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>Premium Annual</h3>
+                <div class="price">₹20,000<span>/year</span></div>
+                <ul>
+                    <li>✓ UNLIMITED service requests</li>
+                    <li>✓ All services included</li>
+                    <li>✓ Best value - Save ₹28,000</li>
+                    <li>✓ 24/7 priority support</li>
+                    <li>✓ Dedicated care coordinator</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem; color: rgba(255,255,255,0.9); max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p><strong>Note:</strong> Subscription covers Jeeyo's coordination services. Third-party service costs (electrician fees, grocery bills, cab fares, etc.) are billed separately as per provider rates. Full transparency with bills and receipts provided.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">We're here to help - reach out anytime</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="info-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Address:</strong><br>
+                        DA-129, Street-278, Newtown<br>
+                        Near Newtown School<br>
+                        Kolkata-700156, West Bengal
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong>Phone:</strong><br>
+                        <a href="tel:+919073697171">9073697171</a> / 
+                        <a href="tel:+919073671816">9073671816</a><br>
+                        <em>(9 AM - 7 PM, All days)</em>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="icon">✉️</div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:jeeyo.care@gmail.com">jeeyo.care@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <strong>Website:</strong><br>
+                        <a href="http://www.jeeyo.com" target="_blank">www.jeeyo.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+                        <select id="service" name="service" required>
+                            <option value="">-- Select a Service Category --</option>
+                            <option value="Medical & Health">Medical & Health (Doctor visits, Medicine, Nursing)</option>
+                            <option value="Daily Errands">Daily Errands (Groceries, Banking, Food delivery)</option>
+                            <option value="Home & Travel">Home & Travel (Repairs, Cleaning, Cab booking)</option>
+                            <option value="Digital & Documentation">Digital & Documentation (Legal, KYC, Mobile support)</option>
+                            <option value="Travel & Entertainment">Travel & Entertainment (Passport, Visa, Entertainment)</option>
+                            <option value="General Inquiry">General Inquiry / Want to know more</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Submit Request</button>
+                </form>
+                
+                <div id="formMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo" style="color: var(--white); margin-bottom: 1rem;">
+            JEEYO
+            <span style="color: var(--accent);">Live Free, Live Long</span>
+        </div>
+        <p>&copy; 2024 Jeeyo. All rights reserved.</p>
+        <p>DA-129, Street-278, Newtown, Kolkata-700156</p>
+        <p class="footer-tagline">Making Life Easier for Those Who Matter Most</p>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission handler with Google Apps Script integration
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('.submit-button');
+            const formMessage = document.getElementById('formMessage');
+            const originalButtonText = submitButton.textContent;
+            
+            // Disable button and show loading
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+                // Instructions in SETUP_GUIDE.md
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbz0XJQ3GGC2vwINq9RzIEn3H79FOV0E3aWVe9wJOiDfooxCYO1PPg249xvGS5ZNm9VSPA/exec';
+                
+                // Submit to Google Apps Script
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                // Since we're using no-cors, we can't read the response
+                // but if we got here, it probably worked
+                
+                // Show success message
+                formMessage.style.display = 'block';
+                formMessage.style.background = '#d4edda';
+                formMessage.style.color = '#155724';
+                formMessage.style.border = '1px solid #c3e6cb';
+                formMessage.innerHTML = '✓ Thank you! We\'ll contact you within 24 hours.';
+                
+                // Reset form
+                this.reset();
+                
+                // Re-enable button
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                // Show error message
+                formMessage.style.display = 'block';
+                formMessage.style.background = '#f8d7da';
+                formMessage.style.color = '#721c24';
+                formMessage.style.border = '1px solid #f5c6cb';
+                formMessage.textContent = 'Something went wrong. Please call us directly at 9073697171.';
+                
+                // Re-enable button
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+            }
+        });
+        
+        // Phone number validation
+        document.getElementById('phone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+    </script>
+</body>
+</html>
